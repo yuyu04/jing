@@ -7,7 +7,7 @@ self.addEventListener('push', function(event) {
         badge: '../images/badge.png',
         vibrate: [200, 100, 200, 100, 200, 100, 400],
         data : payload.params
-    };d
+    };
     event.waitUntil( self.registration.showNotification(title, options) );
 });
 

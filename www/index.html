@@ -2,9 +2,8 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 <script>
-    const vapidPublicKey = 'AAAASh6YDxE:APA91bEwr2UlW981dPTMQXSUvzQXh1yiklqFF' +
-        'CTmi0BlH0ue9aILC4NHjmpaUlQ-ZjFfH9hVoi0Ung6_GM6ZqioMidNzFju_chCrx6E8LgC' +
-        'BTlJk-tyMNssJJow1NR7Jooc4bu1J56_h';
+    const vapidPublicKey = 'BJY41Fg1V1NWl_udUQlBqS63-rjgNPbggXX-iNAkqL5' +
+        '_Mh-FLRM7ADfKKkjQR4akKr-C7wIyzQ5LFPzJp7JSiNs';
 
     const convertedVPkey = urlB64ToUint8Array(vapidPublicKey);
     function urlB64ToUint8Array(base64String) {
@@ -12,13 +11,10 @@
         const base64 = (base64String + padding)
             .replace(/\-/g, '+')
             .replace(/_/g, '/');
-
         const rawData = window.atob(base64);
         const outputArray = new Uint8Array(rawData.length);
-
-        for (let i = 0; i < rawData.length; ++i) {
+        for (let i = 0; i < rawData.length; ++i)
             outputArray[i] = rawData.charCodeAt(i);
-        }
         return outputArray;
     }
     $(document).ready( function () {
