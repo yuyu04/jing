@@ -1,0 +1,12 @@
+{
+  "name": "My App",
+  "short_name": "my-app",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "images/android_black_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
