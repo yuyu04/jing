@@ -21,7 +21,7 @@ app.engine('html', require('ejs').renderFile);
 app.use(express.static('www'));
 //app.use('/', router);
 
-createServer({ email: yuyu04@naver.com, domains: www.jing-jing.cf, agreeTos: true }, app);
+createServer({ email: "yuyu04@naver.com", domains: "www.jing-jing.cf", agreeTos: true, ports:{http:80, https: 443} }, app);
 
 //var httpsServer = https.createServer(credentials, app);
 
