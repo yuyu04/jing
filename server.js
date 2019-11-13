@@ -26,7 +26,7 @@ var httpServer = http.createServer(app);
 createServer({ email: 'yuyu04@naver.com', domains: ['jing-jing.cf', 'www.jing-jing.cf'], agreeTos: true, ports: {https: 443} }, app);
 // var httpsServer = https.createServer(credentials, app);
 
-httpServer.listen(80, '172.31.38.77');
+httpServer.listen(80, '3.134.113.218');
 // httpsServer.listen(8080, '172.31.38.77');
 
 // var server = app.listen(3000, function() {
