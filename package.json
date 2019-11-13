@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "uglify": "uglifyjs --compress --mangle --output "
+    "uglify": "uglifyjs --compress --mangle --output ",
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -16,11 +17,13 @@
     "atob": "^2.1.2",
     "body-parser": "^1.19.0",
     "buffer": "^5.4.3",
+    "cookie-parser": "^1.4.4",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "firebase-tools": "^7.7.0",
     "mongodb": "^3.3.4",
     "mysql": "^2.17.1",
+    "nodemon": "^1.19.4",
     "web-push": "^3.4.1"
   },
   "devDependencies": {
