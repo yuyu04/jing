@@ -1,9 +1,10 @@
 <link rel="manifest" href="/manifest.json" />
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!--<script src="src/init-firebase.js"></script>-->
 
 <script>
-    const vapidPublicKey = 'BJY41Fg1V1NWl_udUQlBqS63-rjgNPbggXX-iNAkqL5' +
-        '_Mh-FLRM7ADfKKkjQR4akKr-C7wIyzQ5LFPzJp7JSiNs';
+    const vapidPublicKey = 'BEdMy4CXnj2VLTCrKKBPZfgIaURGcfmOPsjh1BBDnv-72Uj9WsSnbU8ce-vogrJwKxpiedEiYjrrkTjaHjHQa-A';
 
     const convertedVPkey = urlB64ToUint8Array(vapidPublicKey);
     function urlB64ToUint8Array(base64String) {
@@ -44,19 +45,15 @@
                         })
                             .then(function(subscription) {
                                 $.ajax({
+                                    contentType: 'application/json',
                                     method : 'POST',
-                                    url : '/push-send',
+                                    url : '/save-subs',
+                                    crossDomain: true,
                                     dataType : 'json',
-                                    data : {
+                                    processData: false,
+                                    data: JSON.stringify({
                                         subscription: JSON.stringify(subscription),
-                                        data: JSON.stringify({
-                                            title : 'TITLE',
-                                            body : 'Push send test..',
-                                            params : {
-                                                url : '/'
-                                            }
-                                        })
-                                    }
+                                    })
                                 }).done( function (res){
                                     console.log(res);
                                     $("#button").trigger("updateBtn",[true]);

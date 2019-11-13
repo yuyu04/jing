@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<button type="button" onclick="button_remove_db">RemoveAll</button>
+<script>
+    function button_remove_db() {
+        $.ajax({
+            contentType: 'application/json',
+            method : 'POST',
+            url : '/remove-all',
+            crossDomain: true,
+            dataType : 'json',
+            processData: false,
+            data: JSON.stringify({
+                isRemove: true,
+            })
+        }).done( function (res){
+            console.log(res);
+        }).fail( function (err) {
+            console.log(err);
+        });
+    }
+    function button_push_click(ID) {
+        $.ajax({
+            contentType: 'application/json',
+            method : 'POST',
+            url : '/push-send',
+            crossDomain: true,
+            dataType : 'json',
+            processData: false,
+            data: JSON.stringify({
+                id: ID,
+                data: JSON.stringify({
+                    title : 'TITLE',
+                    body : 'Push send test..',
+                    params : {
+                        url : '/'
+                    }
+                })
+            })
+        }).done( function (res){
+            console.log(res);
+        }).fail( function (err) {
+            console.log(err);
+        });
+    }
+
+    window.onload = function () {
+        $.getJSON( "/get-db", function( data ) {
+            var items = [];
+            $.each( data, function( key, val ) {
+                let id = val.ID;
+                const buttonString = '<button type="button" onclick="button_push_click(\'' + id + '\')" >click</button>';
+                items.push( "<div id='" + key + "'>" + key + buttonString +"</div>" );
+            });
+
+            $( "<ul/>", {
+                "class": "my-new-list",
+                html: items.join( "" )
+            }).appendTo( "body" );
+        });
+    };
+
+</script>
+</body>
+</html>
