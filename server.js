@@ -39,7 +39,7 @@ app.use(function(err, req, res, next) {
 });
 
 var httpServer = http.createServer(app);
-httpServer.listen(80, '3.134.113.218');
+httpServer.listen(80, '3.19.204.190');
 
 createServer({ email: 'yuyu04@naver.com', domains: ['jing-jing.cf', 'www.jing-jing.cf'], agreeTos: true, ports: {https: 443} }, app);
 // var httpsServer = https.createServer(credentials, app);
